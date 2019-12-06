@@ -1,0 +1,12 @@
+.AsideBlock {
+  padding: 1em 0;
+  background-color: white;
+  border-radius: 0.3em;
+  box-shadow: 0 0 0.2em 0.2em #eee;
+  min-width: 17em;
+  min-height: 200px;
+  display: inline-block;
+}
+
+.AsideBlock__header {
+}

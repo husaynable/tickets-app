@@ -1,7 +1,7 @@
 .Checkbox {
   display: inline-block;
-  width: 0.8em;
-  height: 0.8em;
+  width: 1em;
+  height: 1em;
   overflow: hidden;
   border-radius: 0.05em;
   background-color: white;

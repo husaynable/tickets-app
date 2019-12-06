@@ -30,7 +30,7 @@ const SelectListItem: React.FC<propTypes> = ({
         setIsHovered(false);
       }}
     >
-      <span>
+      <span className="SelectListItem__primary">
         <Checkbox checked={isSelected} />
         <span className="SelectListItem__label">{label}</span>
       </span>

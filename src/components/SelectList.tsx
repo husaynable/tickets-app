@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import './SelectList.css';
 import SelectListItem from './SelectListItem';
 import { SelectItem } from '../models/select-item';
 
-const SelectList: React.FC<propTypes> = ({ items, onSelectionChange }) => {
+const SelectList: React.FC<propTypes> = ({
+  listHeader,
+  items,
+  onSelectionChange
+}) => {
   useEffect(() => {
     const isAllSelected = items.every(item => item.isSelected);
     setAllItemsSelected(isAllSelected);
@@ -47,6 +52,7 @@ const SelectList: React.FC<propTypes> = ({ items, onSelectionChange }) => {
 
   return (
     <div className="SelectList">
+      <h4 className="SelectList__header">{listHeader}</h4>
       <SelectListItem
         label="Все"
         isSelected={allItemsSelected}
@@ -68,6 +74,7 @@ const SelectList: React.FC<propTypes> = ({ items, onSelectionChange }) => {
 export default SelectList;
 
 type propTypes = {
+  listHeader: string;
   items: SelectItem[];
   onSelectionChange: (items: SelectItem[]) => void;
 };
