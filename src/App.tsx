@@ -6,7 +6,7 @@ import Checkbox from './components/Checkbox';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Checkbox checked />
+      <Checkbox />
     </div>
   );
 };
