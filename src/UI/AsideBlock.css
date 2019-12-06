@@ -8,5 +8,10 @@
   display: inline-block;
 }
 
-.AsideBlock__header {
+.AsideBlock > * {
+  margin-bottom: 2em;
+}
+
+.AsideBlock > *:last-child {
+  margin-bottom: 0;
 }

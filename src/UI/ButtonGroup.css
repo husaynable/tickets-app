@@ -1,0 +1,35 @@
+.ButtonGroup::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.ButtonGroup button {
+  background-color: white;
+  border: 1px solid #4a90e2;
+  color: #4a90e2;
+  padding: 10px 24px;
+  cursor: pointer;
+  float: left;
+}
+
+.ButtonGroup button:hover {
+  background-color: rgba(0, 193, 251, 0.1);
+}
+
+.ButtonGroup button.selected {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.ButtonGroup button:not(:last-child) {
+  border-right: none;
+}
+
+.ButtonGroup button:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.ButtonGroup button:last-child {
+  border-radius: 0 5px 5px 0;
+}

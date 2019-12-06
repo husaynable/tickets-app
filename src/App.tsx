@@ -1,18 +1,17 @@
 import React, { useContext } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Checkbox from './components/Checkbox';
-import SelectListItem from './components/SelectListItem';
 import { TickectsContext } from './context/Tickets.context';
 import SelectList from './components/SelectList';
 import AsideBlock from './UI/AsideBlock';
+import CurrencyGroup from './UI/CurrencyGroup';
 
 const App: React.FC = () => {
   const ticketsContext = useContext(TickectsContext);
 
   return (
     <div className="App">
-      <AsideBlock header="количество пересадок">
+      <AsideBlock>
+        <CurrencyGroup />
         <SelectList
           listHeader="количество пересадок"
           items={ticketsContext.stopsFilterItems}
