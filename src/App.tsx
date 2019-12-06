@@ -3,7 +3,7 @@ import './App.css';
 import { TickectsContext } from './context/Tickets.context';
 import SelectList from './components/SelectList';
 import AsideBlock from './UI/AsideBlock';
-import CurrencyGroup from './UI/CurrencyGroup';
+import CurrencyGroup from './components/CurrencyGroup';
 
 const App: React.FC = () => {
   const ticketsContext = useContext(TickectsContext);
@@ -11,7 +11,10 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <AsideBlock>
-        <CurrencyGroup />
+        <CurrencyGroup
+          selectedCurrency={ticketsContext.selectedCurrency}
+          setSelectedCurrency={ticketsContext.setSelectedCurrency}
+        />
         <SelectList
           listHeader="количество пересадок"
           items={ticketsContext.stopsFilterItems}

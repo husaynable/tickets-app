@@ -1,0 +1,9 @@
+.CurrencyGroup {
+  margin-left: 1em;
+}
+
+.CurrencyGroup__header {
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+  margin-top: 0;
+}
