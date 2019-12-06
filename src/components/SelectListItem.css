@@ -1,0 +1,36 @@
+.SelectListItem {
+  cursor: pointer;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  height: 1.8em;
+  justify-content: space-between;
+}
+
+.SelectListItem:hover {
+  background-color: rgba(0, 193, 251, 0.1);
+}
+
+.SelectListItem__label {
+  margin-left: 0.6em;
+}
+
+.SelectListItem__button {
+  background-color: transparent;
+  border: none;
+  color: #4a90e2;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  font-size: 10pt;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.2em;
+  padding: 0.6em;
+  z-index: 100;
+}
+
+.SelectListItem__button:hover {
+  background-color: rgba(0, 193, 251, 0.2);
+}

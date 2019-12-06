@@ -1,5 +1,5 @@
 .Checkbox {
-  display: block;
+  display: inline-block;
   width: 0.8em;
   height: 0.8em;
   overflow: hidden;
