@@ -1,4 +1,4 @@
-export interface Ticket {
+export interface TicketModel {
   carrierLogoUrl: string;
   price: string;
   originName: string;

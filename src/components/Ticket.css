@@ -1,0 +1,14 @@
+.Ticket {
+  height: 3em;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+}
+
+.Ticket__header {
+  width: 3.2em;
+  border-left: 1px solid #eee;
+}
+
+.Ticket__point {}
+
+.Ticket__stops {}

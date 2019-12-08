@@ -3,6 +3,7 @@
   min-width: 17em;
   min-height: 200px;
   display: inline-block;
+  position: fixed;
 }
 
 .AsideBlock>* {

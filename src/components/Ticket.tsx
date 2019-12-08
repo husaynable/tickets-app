@@ -1,11 +1,14 @@
 import React from 'react';
-import { Ticket } from '../models/Ticket.model';
+import { TicketModel } from '../models/Ticket.model';
 import './Ticket.css';
 
-const Ticket: React.FC<Ticket> = props => {
+const Ticket: React.FC<TicketModel> = props => {
   return (
     <div className="Ticket card">
-      <img src={props.carrierLogoUrl} />
+      <div className="Ticket__header"></div>
+      <div className="Ticket__point"></div>
+      <div className="Ticket__stops"></div>
+      <div className="Ticket__point"></div>
     </div>
   );
 };
