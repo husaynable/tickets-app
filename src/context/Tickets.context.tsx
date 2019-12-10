@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SelectItem } from '../models/select-item';
 import { TicketModel } from '../models/Ticket.model';
+import { getDate } from '../helpers/dateTime';
 
 export const TickectsContext = React.createContext<contextTypes>({
   stopsFilterItems: [] as SelectItem[],
@@ -41,10 +42,14 @@ const TicketsContextProvider: React.FC = ({ children }) => {
   const [tickets, setTickets] = useState<TicketModel[]>([]);
 
   useEffect(() => {
-    fetch('../tickets.json')
-      .then(res => res.json())
-      .then((t: { tickets: any[] }) => setTickets(t.tickets.map(ticketMapper)));
-  }, []);
+    fetch('/tickets.json')
+      .then((res: Response) => res.json())
+      .then((t: { tickets: any[] }) => t.tickets.map(ticketMapper))
+      .then(tickets => {
+        console.log(tickets);
+        setTickets(tickets);
+      });
+  }, [setTickets]);
 
   return (
     <TickectsContext.Provider
@@ -74,11 +79,11 @@ type contextTypes = {
 function ticketMapper(t: any): TicketModel {
   return {
     originName: t['origin'] + ', ' + t['origin_name'],
-    destinationName: t['destionation'] + ', ' + t['destionation_name'],
-    departureDate: t['departure_date'],
+    destinationName: t['destination'] + ', ' + t['destination_name'],
+    departureDate: getDate(t['departure_date'], t['departure_time']),
     departureTime: t['departure_time'],
-    arrivalDate: t['arrival_date'],
-    arrivalTime: t['arrivat_time'],
+    arrivalDate: getDate(t['arrival_date'], t['arrival_time']),
+    arrivalTime: t['arrival_time'],
     carrierLogoUrl: carrierLogoByCode[t['carrier']],
     stops: t['stops'],
     price: t['price']

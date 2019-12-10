@@ -18,3 +18,39 @@ code {
   border-radius: 0.3em;
   box-shadow: 0 0 0.2em 0.2em #eee;
 }
+
+.container {
+  padding: 0 15px;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.right-align {
+  text-align: right;
+}
+
+@media (min-width: 575.98px) {
+  .container {
+    padding: 0 calc(50vw - 270px);
+  }
+}
+
+@media (min-width: 767.98px) {
+  .container {
+    padding: 0 calc(50vw - 360px);
+  }
+}
+
+@media (min-width: 991.98px) {
+  .container {
+    padding: 0 calc(50vw - 480px);
+  }
+}
+
+@media (min-width: 1199.98px) {
+  .container {
+    padding: 0 calc(50vw - 590px);
+  }
+}

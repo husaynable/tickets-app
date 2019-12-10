@@ -1,14 +1,50 @@
 .Ticket {
-  height: 3em;
   display: grid;
   grid-template-columns: auto auto 1fr auto;
+  padding: 0.5em;
+  gap: 0.5em;
+}
+
+.Ticket + .Ticket {
+  margin-top: 1.5em;
 }
 
 .Ticket__header {
   width: 3.2em;
-  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
 }
 
-.Ticket__point {}
+.Ticket__point {
+  display: flex;
+  flex-direction: column;
+}
 
-.Ticket__stops {}
+.Ticket__point_time {
+  font-size: 48px;
+}
+
+.Ticket__point_date {
+  font-size: small;
+  color: gray;
+}
+
+.Ticket__stops {
+  color: gray;
+  text-align: center;
+}
+
+.flying-airplane-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  height: 2px;
+  background-color: lightgray;
+  flex: 1 1 auto;
+}
+
+.plane-icon {
+  transform: rotate(90deg);
+  color: lightgray;
+}
