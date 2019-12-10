@@ -3,12 +3,18 @@
 }
 
 .App__main {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.5em;
+  display: flex;
   align-items: flex-start;
   margin-top: 1em;
   margin-bottom: 4em;
+}
+
+.App__main > .TicketsList {
+  flex: 1 1 auto;
+}
+
+.TicketsList {
+  margin-left: 1.5em;
 }
 
 .App__header {

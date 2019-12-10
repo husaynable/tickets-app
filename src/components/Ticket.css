@@ -1,6 +1,5 @@
 .Ticket {
-  display: grid;
-  grid-template-columns: auto auto 1fr auto;
+  display: flex;
   padding: 0.5em;
   gap: 0.5em;
 }
@@ -61,6 +60,7 @@
 .Ticket__stops {
   color: gray;
   text-align: center;
+  flex: 1 1 auto;
 }
 
 .flying-airplane-wrapper {
