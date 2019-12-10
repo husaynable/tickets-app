@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { SelectItem } from '../models/select-item';
 import { TicketModel } from '../models/Ticket.model';
 import { getDate } from '../helpers/dateTime';
+import { formatToCurrency } from '../helpers/currency';
 
 export const TickectsContext = React.createContext<contextTypes>({
   stopsFilterItems: [] as SelectItem[],
@@ -13,7 +14,7 @@ export const TickectsContext = React.createContext<contextTypes>({
   tickets: [] as TicketModel[]
 });
 
-const STOPS_ITEMS = [
+const STOPS_ITEMS: SelectItem[] = [
   {
     id: 0,
     label: 'Без пересадок',
@@ -37,19 +38,28 @@ const STOPS_ITEMS = [
 ];
 
 const TicketsContextProvider: React.FC = ({ children }) => {
-  const [stopsFilterItems, setStopsFilterItems] = useState(STOPS_ITEMS);
+  const [stopsFilterItems, setStopsFilterItems] = useState<SelectItem[]>(
+    STOPS_ITEMS
+  );
   const [selectedCurrency, setSelectedCurrency] = useState<string>('RUB');
   const [tickets, setTickets] = useState<TicketModel[]>([]);
 
   useEffect(() => {
     fetch('/tickets.json')
       .then((res: Response) => res.json())
-      .then((t: { tickets: any[] }) => t.tickets.map(ticketMapper))
+      .then((t: { tickets: any[] }) =>
+        t.tickets.map(ticketMapper.bind(null, selectedCurrency))
+      )
       .then(tickets => {
-        console.log(tickets);
-        setTickets(tickets);
-      });
-  }, [setTickets]);
+        const selectedStops = stopsFilterItems
+          .filter(f => f.isSelected)
+          .map(f => f.id);
+        return selectedStops.length === 0
+          ? tickets
+          : tickets.filter(t => selectedStops.includes(t.stops));
+      })
+      .then(tickets => setTickets(tickets));
+  }, [selectedCurrency, stopsFilterItems]);
 
   return (
     <TickectsContext.Provider
@@ -76,7 +86,7 @@ type contextTypes = {
   tickets: TicketModel[];
 };
 
-function ticketMapper(t: any): TicketModel {
+function ticketMapper(currency: string, t: any): TicketModel {
   return {
     originName: t['origin'] + ', ' + t['origin_name'],
     destinationName: t['destination'] + ', ' + t['destination_name'],
@@ -86,8 +96,13 @@ function ticketMapper(t: any): TicketModel {
     arrivalTime: t['arrival_time'],
     carrierLogoUrl: carrierLogoByCode[t['carrier']],
     stops: t['stops'],
-    price: t['price']
+    price: formatToCurrency(t['price'], currency)
   };
 }
 
-const carrierLogoByCode: { [code: string]: string } = {};
+const carrierLogoByCode: { [code: string]: string } = {
+  TK: '/tk_logo.jpg',
+  SU: '/su_logo.jpg',
+  BA: 'ba_logo.jpg',
+  S7: 's7_logo.jpg'
+};

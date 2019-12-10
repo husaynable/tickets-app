@@ -5,18 +5,48 @@
   gap: 0.5em;
 }
 
+.Ticket:hover {
+  box-shadow: 0 0 1em 1px lightgray;
+}
+
 .Ticket + .Ticket {
   margin-top: 1.5em;
 }
 
 .Ticket__header {
-  width: 3.2em;
+  text-align: center;
   border-right: 1px solid #eee;
+  padding: 1em;
+}
+
+.Ticket__header_logo {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.Ticket__header_button {
+  background-color: #fb703d;
+  line-height: 20pt;
+  border: none;
+  color: white;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 14pt;
+  border-radius: 0.2em;
+  padding: 0.3em 2em;
+  margin-top: 0.5em;
+}
+
+.Ticket__header_button:hover {
+  background-color: #fd875c;
 }
 
 .Ticket__point {
   display: flex;
   flex-direction: column;
+  padding: 0 1em;
 }
 
 .Ticket__point_time {

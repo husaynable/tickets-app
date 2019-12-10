@@ -19,13 +19,11 @@ const SelectList: React.FC<propTypes> = ({
     const newItems = items.map(item => {
       return { ...item, isSelected: selected } as SelectItem;
     });
-    console.log(newItems);
     onSelectionChange(newItems);
   };
 
   const itemSelectedHandler = (itemId: number) => {
     return (selected: boolean) => {
-      console.log('heh');
       const newItems = items.map(item => {
         if (item.id === itemId) {
           return { ...item, isSelected: selected } as SelectItem;
@@ -45,7 +43,6 @@ const SelectList: React.FC<propTypes> = ({
         }
         return { ...item, isSelected: false } as SelectItem;
       });
-      console.log(newItems);
       onSelectionChange(newItems);
     };
   };

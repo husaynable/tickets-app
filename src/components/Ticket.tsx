@@ -4,7 +4,18 @@ import './Ticket.css';
 
 const Ticket: React.FC<TicketModel> = props => (
   <div className="Ticket card">
-    <div className="Ticket__header"></div>
+    <div className="Ticket__header">
+      <img
+        className="Ticket__header_logo"
+        src={props.carrierLogoUrl}
+        alt="Carrier Logo"
+      />
+      <button className="Ticket__header_button">
+        Купить
+        <br />
+        за {props.price}
+      </button>
+    </div>
     <div className="Ticket__point">
       <span className="Ticket__point_time">{props.departureTime}</span>
       <span className="Ticket__point_name">{props.originName}</span>

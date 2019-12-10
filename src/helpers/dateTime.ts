@@ -3,7 +3,7 @@ export function getDate(date: string, time: string): string {
   const validTime = validateTime(time);
 
   const dateTime = new Date(`${validDate}T${validTime}`);
-  console.log(dateTime);
+
   return new Intl.DateTimeFormat('ru-RU', {
     month: 'short',
     weekday: 'short',

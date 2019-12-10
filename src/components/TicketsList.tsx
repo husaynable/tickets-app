@@ -6,7 +6,7 @@ const TicketsList: React.FC<propTypes> = ({ tickets }) => {
   return (
     <div className="TicketsList">
       {tickets.map(ticket => (
-        <Ticket {...ticket} />
+        <Ticket {...ticket} key={ticket.departureTime + ticket.arrivalTime} />
       ))}
     </div>
   );
