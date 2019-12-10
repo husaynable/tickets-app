@@ -11,6 +11,13 @@ const App: React.FC = () => {
 
   return (
     <React.Fragment>
+      <header className="App__header">
+        <img
+          className="App__header_logo"
+          src="/header_logo.png"
+          alt="App Logo"
+        />
+      </header>
       <main className="App__main container">
         <AsideBlock>
           <CurrencyGroup
